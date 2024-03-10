@@ -1,0 +1,115 @@
+body{
+    background-color: #363636;
+
+}
+
+.header {
+    position: absolute;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    width: 3840px;
+    background-color: #282828;
+    height: 70px;
+    border: solid 1px #343434;
+}
+h1 {
+    color: #dadada;
+}
+
+#side-left {
+    background-color:  #282828;
+    border: solid 1px #343434 !important;
+    position: absolute;
+    left: 250px;
+    width: 200px;
+    margin-top: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 400px;
+
+}
+
+#side-left-buttons {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 3px;
+    background-color: #282828;
+}
+
+#side-left-buttons > a {
+
+    text-decoration: none;
+    color: #dadada;
+    border: #282828 solid 1px !important;
+    padding: 5px;
+}
+
+#side-left-buttons > a:hover {
+    background-color: #363636;
+}
+
+#helloName {
+    padding-right: 140px;
+    padding-left: 10px;
+    height: 10px;
+}
+#searchHeader {
+    padding-right: 10px;
+    width: 200px;
+    background-color: #383838;
+    border: 0;
+}
+input::placeholder {
+    color: red;
+}
+input::content {
+    color: red;
+}
+#notificationsHeader {
+    padding-right: 50px;
+}
+#musicPlayerHeader {
+    padding-right: 260px;
+}
+#profileImageHeader {
+
+}
+#logo {
+    padding-left: 250px;
+}
+.header > nav{
+    display:block flex;
+    position: relative;
+    width: 1500px;
+    height: 70px;
+    align-items: center;
+    justify-content: start;
+
+    /* margin: 0%; */
+    /* padding: 0%; */
+}
+
+
+
+
+p {
+    font-size: 15px;
+    margin: 0;
+    color: #dadada;
+
+}
+
+#main {
+    position: absolute;
+    border: solid 1px #343434 !important;
+    background-color: #282828;
+    left: 550px;
+    margin-top: 100px;
+    width: 800px;
+    height: 100vw;
+    padding: 15px;
+}
+
