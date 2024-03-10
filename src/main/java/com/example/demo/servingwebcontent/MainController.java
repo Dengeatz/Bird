@@ -19,9 +19,7 @@ public class MainController {
     public String greeting(Model model) {
         Posts post = new Posts();
         List<Post> result = post.getPosts();
-        for(int i = 0; i < result.size(); i++) {
-            System.out.println(result.get(i).getTitle());
-        }
+        model.addAttribute("posts", result);
         model.addAttribute("user", new User());
         return "home";
     }

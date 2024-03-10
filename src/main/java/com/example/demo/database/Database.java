@@ -18,10 +18,10 @@ public class Database {
             this.statement = con.createStatement();
         } catch (SQLException e) {
             System.out.println(e);
-            ;
+
         } catch (ClassNotFoundException e) {
             System.out.println(e);
-            ;
+
         }
     }
     public ResultSet GetNameOfCurrentUser(int id){

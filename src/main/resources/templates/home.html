@@ -34,20 +34,15 @@
         </div>
     </div>
     <div id="main" class="object-fit-fill border rounded">
-        <div id="post" class="object-fit-fill border rounded">
+        <div th:each="post: ${posts}" id="post" class="object-fit-fill border rounded">
             <div id="headPost">
                 <a href="#">Илья Лосев</a>
-                <p>Сегодня 20:54</p>
+                <p th:text="${post.datetime}"></p>
             </div>
             <div id="bodyPost">
-                <h3>Сегодня я ел рис</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur
-                    adipisicing elit. Accusantium aliquid animi architecto commodi, debitis deleniti
-                    doloremque enim expedita laudantium
-                    minus modi molestiae nam quibusdam, quis ratione
-                    soluta tenetur veritatis voluptate.</p>
+                <h3 th:text="${post.title}"></h3>
+                <p th:text="${post.description}"></p>
             </div>
-
         </div>
     </div>
 </div>
