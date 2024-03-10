@@ -113,3 +113,102 @@ p {
     padding: 15px;
 }
 
+#post {
+    border: solid 1px #343434 !important;
+    background-color: #282727;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#post > #headPost > a {
+    text-decoration: none;
+    color: #dadada;
+}
+
+#post > #bodyPost > h3 {
+    color: #a2e5ff;
+}
+
+#post > #bodyPost > p {
+    color: #dadada;
+}
+
+#post > #headPost > p {
+    color: #8afaff6e;
+}
+
+#bodyPost #imagePost > img{
+    min-width: 300px;
+    min-height: 100px;
+    max-width: 700px;
+
+    max-height: 400px;
+    object-fit:contain;
+}
+
+#bodyPost >  #imagePost {
+    text-align: center;
+}
+
+#bodyPost  > #imagePost {
+    min-width: 300px;
+    min-height: 100px;
+
+    object-fit:contain;
+    padding: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#lcr {
+    font-size: 20px;
+
+}
+
+#lcr > #like {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#lcr > #comment {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#lcr > #repost {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#lcr > #like:hover {
+    background-color: #363636;
+}
+
+#lcr > #comment:hover {
+    background-color: #363636;
+}
+#lcr > #repost:hover {
+    background-color: #363636;
+}
+
+h2{
+    color: #dadada;
+}
+
+#commentBody {
+    background-color: #383838;
+    border: 0;
+}
+
+#post > #comments > #commentsText > #commentariy {
+    background-color: #363636 !important;
+    margin-bottom: 10px !important;
+    margin-top: 10px !important;
+    padding: 10px !important;
+}
+
+#post > #comments > #commentsText > #commentariy > a {
+    text-decoration: none !important;
+    color: #dadada !important;
+
+}

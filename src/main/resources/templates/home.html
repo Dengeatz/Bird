@@ -34,14 +34,34 @@
         </div>
     </div>
     <div id="main" class="object-fit-fill border rounded">
+        <h2 class="text-white">Посты</h2>
         <div th:each="post: ${posts}" id="post" class="object-fit-fill border rounded">
             <div id="headPost">
                 <a href="#">Илья Лосев</a>
-                <p th:text="${post.datetime}"></p>
+                <p id="datetime" th:text="${post.datetime}"></p>
             </div>
             <div id="bodyPost">
                 <h3 th:text="${post.title}"></h3>
                 <p th:text="${post.description}"></p>
+                    <div class="carousel-inner bg-gray bg-gradient shadow-sm rounded " id = "imagePost">
+                        <img src="https://cont.ws/uploads/pic/2022/3/test-podhodit-li-tebe-udalenka-ne-frilans-15.jpeg">
+                    </div>
+                </div>
+            <div id="lcr">
+                <i class="bi bi-arrow-up text-white rounded-3" id="like"></i>
+                <i class="bi bi-chat-dots-fill text-white rounded-3" id="comment"></i>
+                <i class="bi bi-reply-fill text-white rounded-3" id="repost"></i>
+            </div>
+                <div id="comments">
+                    <h2 id="commentCount">Комментариев(1): </h2>
+                    <div id="commentsText">
+                        <div id="commentariy" class="rounded-4">
+                            <a href="#">Илья Лосев</a>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium delectus distinctio earum error iste quae, reprehenderit voluptatum. Dolore in magni minima porro rerum saepe unde! Laboriosam molestiae numquam placeat ratione?</p>
+                        </div>
+                    </div>
+                    <input id="commentBody" class="form-control me-2" type="search" placeholder="Написать комментарий" aria-label="Search">
+                </div>
             </div>
         </div>
     </div>
