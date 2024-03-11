@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/home.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <title>Bird</title>
+</head>
+<body>
+<div id="formDiv">
+  <form action="#" th:action="@{/register}" th:object="${user}" method="post">
+    <p>Введите ваше имя: </p>
+    <input type="text" th:field="*{name}"/>
+    <p>Введите вашу почту: </p>
+    <input type="email" th:field="*{email}"/>
+    <p>Придумайте пароль: </p>
+    <input type="password" th:field="*{password}"/>
+    <p>Повторите пароль: </p>
+    <input type="password" />
+    <button>Зарегистрироваться</button>
+  </form>
+</div>
+</body>
+</html>
