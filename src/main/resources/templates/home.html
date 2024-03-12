@@ -15,7 +15,7 @@
 <div class="header">
     <nav>
     <h1 id="logo">Bird</h1>
-    <p id="helloName" th:text="|Hello, ${user.getName()}!|" />
+    <p id="helloName" th:text="|Hello, ${session.username}!|" />
     <input id="searchHeader" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
     <i id="notificationsHeader" class="bi bi-bell text-white"></i>
     <p id="musicPlayerHeader">Сейчас играет: ...</p>

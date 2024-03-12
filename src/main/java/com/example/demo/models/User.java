@@ -2,10 +2,10 @@ package com.example.demo.models;
 
 import com.example.demo.database.Database;
 import com.example.demo.database.UserDB;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Arrays;
+import java.util.Objects;
 
 
 public class User extends UserDB {
@@ -16,7 +16,7 @@ public class User extends UserDB {
     Database db = new Database();
     public User() {
         System.out.println("Зарегистрируйтесь в системе");
-        System.out.println(encryptPassword(getPasswordDB(22)));
+
     }
     public User(int id) {
         try{
@@ -32,7 +32,23 @@ public class User extends UserDB {
         }
     }
 
+    public String[] loginToAccount(User user) throws SQLException {
+        ResultSet result = user.getPasswordByLoginDB(user.name);
 
+        while(result.next()) {
+            if(Objects.equals(user.name, result.getString("name"))) {
+                if(Objects.equals(user.password, result.getString("password"))) {
+                    return new String[] {user.name, user.password};
+                } else {
+                    ;
+                }
+
+            } else {
+                return new String[] {"Login not valid"};
+            }
+            }
+        return new String[] {"User not find"};
+        }
     public String getName() {
         return name;
     }
@@ -52,7 +68,7 @@ public class User extends UserDB {
     }
 
     public void setPassword(String password) {
-        this.password = Arrays.toString(decryptPassword(password));
+        this.password = password;
 
     }
 
