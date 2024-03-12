@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/profile.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title th:text="${session.username}"></title>
+</head>
+<body>
+<div class="header">
+    <nav>
+        <h1 id="logo">Bird</h1>
+        <p id="helloName" th:text="|Hello, ${session.username}!|" />
+        <input id="searchHeader" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <i id="notificationsHeader" class="bi bi-bell text-white"></i>
+        <p id="musicPlayerHeader">Сейчас играет: ...</p>
+        <p id="profileImageHeader">LogoImage</p>
+    </nav>
+</div>
+<div id="body">
+    <div id="side-left" class ="object-fit-fill border rounded">
+        <div id="side-left-buttons" class="container">
+            <a href="profile" class="object-fit-fill border rounded">Моя страница</a>
+            <a href="/" class="object-fit-fill border rounded">Новости</a>
+            <a href="#" class="object-fit-fill border rounded">Мессенджер</a>
+            <a href="#" class="object-fit-fill border rounded">Друзья</a>
+            <a href="#" class="object-fit-fill border rounded">Группы</a>
+            <a href="#" class="object-fit-fill border rounded">Музыка</a>
+        </div>
+    </div>
+</div>
+<div id="profileMain">
+    <div id="leftSide">
+        <div id="nameOfUser">
+            <h2 th:text="${session.username}"></h2>
+        </div>
+        <div id="profileImage">
+            <img id="profImg" src="https://cont.ws/uploads/pic/2022/3/test-podhodit-li-tebe-udalenka-ne-frilans-15.jpeg"/>
+        </div>
+        <div id="profileActions">
+            <button type="button" class="btn btn-success">Добавить в друзья</button>
+            <button type="button" class="btn btn-success">Написать сообщение</button>
+            <button type="button" class="btn btn-success">Заблокировать</button>
+        </div>
+        <div id="friendList">
+            <p>Ваши друзья(0): </p>
+            <div id="friendListFriends">
+            </div>
+        </div>
+
+    </div>
+    <div id="aboutMe">
+        <h3>Описание</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad architecto consequatur deleniti dolor exercitationem illum impedit iure magnam minima modi natus, nisi officia perferendis possimus quidem quod saepe sed suscipit?</p>
+    </div>
+    <div id="newsMe">
+
+    </div>
+</div>
+</body>
+</html>
