@@ -2,6 +2,9 @@ package com.example.demo.models;
 
 import com.example.demo.database.Database;
 import com.example.demo.database.UserDB;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Arrays;
@@ -20,6 +23,7 @@ public class User extends UserDB {
     }
     public User(int id) {
         try{
+
             ResultSet user_info = db.GetNameOfCurrentUser(id);
             this.id = id;
             while(user_info.next()) {
@@ -40,7 +44,7 @@ public class User extends UserDB {
                 if(Objects.equals(user.password, result.getString("password"))) {
                     return new String[] {user.name, user.password};
                 } else {
-                    ;
+                    return new String[] {"Password not valid"};
                 }
 
             } else {

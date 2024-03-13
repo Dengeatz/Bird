@@ -17,6 +17,8 @@ public class UserDB extends Database{
         }
     }
 
+
+
     public ResultSet getPasswordByLoginDB(String name) {
         try{
             resultSet = statement.executeQuery(String.format("SELECT * FROM user WHERE name = \"%s\"", name));
