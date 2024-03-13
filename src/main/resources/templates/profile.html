@@ -9,28 +9,7 @@
     <title th:text="${session.username}"></title>
 </head>
 <body>
-<div class="header">
-    <nav>
-        <h1 id="logo">Bird</h1>
-        <p id="helloName" th:text="|Hello, ${session.username}!|" />
-        <input id="searchHeader" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <i id="notificationsHeader" class="bi bi-bell text-white"></i>
-        <p id="musicPlayerHeader">Сейчас играет: ...</p>
-        <p id="profileImageHeader">LogoImage</p>
-    </nav>
-</div>
-<div id="body">
-    <div id="side-left" class ="object-fit-fill border rounded">
-        <div id="side-left-buttons" class="container">
-            <a href="profile" class="object-fit-fill border rounded">Моя страница</a>
-            <a href="/" class="object-fit-fill border rounded">Новости</a>
-            <a href="#" class="object-fit-fill border rounded">Мессенджер</a>
-            <a href="#" class="object-fit-fill border rounded">Друзья</a>
-            <a href="#" class="object-fit-fill border rounded">Группы</a>
-            <a href="#" class="object-fit-fill border rounded">Музыка</a>
-        </div>
-    </div>
-</div>
+<div th:insert="~{template :: copy}"></div>
 <div id="profileMain">
     <div id="leftSide">
         <div id="nameOfUser">
