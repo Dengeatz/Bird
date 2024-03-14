@@ -9,14 +9,13 @@ import java.util.Arrays;
 
 public class UserDB extends Database{
     public void addToDatabase(User user) {
-        try{
+        try {
 
             statement.execute(String.format("INSERT into user (name, email, password) values(\"%s\", \"%s\", \"%s\")", user.getName(), user.getEmail(), Arrays.toString(user.decryptPassword(user.getPassword()))));
         } catch (SQLException e) {
             System.out.println(e);
         }
     }
-
 
 
     public ResultSet getPasswordByLoginDB(String name) {
