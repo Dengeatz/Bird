@@ -20,4 +20,10 @@ public class ProfileController {
         model.addAttribute("user", new User());
         return "profile";
     }
+
+    @GetMapping("/user/{name}")
+    public String show(@PathVariable("name") String name,Model model) throws SQLException {
+        model.addAttribute("user", new User(name));
+        return "profile";
+    }
 }

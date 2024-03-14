@@ -36,6 +36,23 @@ public class User extends UserDB {
         }
     }
 
+    public User(String name) throws SQLException {
+        try {
+            ResultSet user_info = db.GetNameOfCurrentUser(name);
+            if(user_info.next()) {
+                System.out.println("Пользователь найден");
+                this.name = user_info.getString("name");
+                this.email = user_info.getString("email");
+                this.password = user_info.getString("password");
+            } else {
+                System.out.println("Пользователь не найден");
+                this.name = "Такого пользователя не найдено";
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
     public String[] loginToAccount(User user) throws SQLException {
         ResultSet result = user.getPasswordByLoginDB(user.name);
 

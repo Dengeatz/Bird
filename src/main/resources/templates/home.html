@@ -15,7 +15,7 @@
         <h2 class="text-white">Посты</h2>
         <div th:each="post: ${posts}" id="post" class="object-fit-fill border rounded">
             <div id="headPost">
-                <a href="#" th:text="${post.author}"></a>
+                <a th:href="@{/user/post.author}" th:text="${post.author}"></a>
                 <p id="datetime" th:text="${post.datetime}"></p>
             </div>
             <div id="bodyPost">

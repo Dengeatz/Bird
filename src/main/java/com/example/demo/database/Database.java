@@ -38,6 +38,17 @@ public class Database {
         return resultSet;
     }
 
+
+    public ResultSet GetNameOfCurrentUser(String name){
+        try {
+            resultSet = statement.executeQuery(String.format("SELECT * FROM user WHERE name = \"%s\"", name));
+        } catch(SQLException e) {
+            System.out.println(e);
+        }
+        return resultSet;
+    }
+
+
     public void AddUser(String name, String email, String pass) throws SQLException {
         try {
             statement.execute(String.format("INSERT INTO user (name, email, password) VALUES (\"%s\", \"%s\", \"%s\")",name, email, pass));

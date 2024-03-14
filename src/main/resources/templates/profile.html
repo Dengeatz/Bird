@@ -9,19 +9,20 @@
     <title th:text="${session.username}"></title>
 </head>
 <body>
-<div th:insert="~{template :: copy}"></div>
-<div id="profileMain">
-    <div id="leftSide">
+<div th:insert="~{template}"></div>
+
+<div id="profileMain" >
+    <div id="leftSide" th:if="${user.name!='Такого пользователя не найдено'}">
         <div id="nameOfUser">
-            <h2 th:text="${session.username}"></h2>
+            <h2 th:text="${user.name}"></h2>
         </div>
         <div id="profileImage">
             <img id="profImg" src="https://cont.ws/uploads/pic/2022/3/test-podhodit-li-tebe-udalenka-ne-frilans-15.jpeg"/>
         </div>
         <div id="profileActions">
-            <button type="button" class="btn btn-success">Добавить в друзья</button>
-            <button type="button" class="btn btn-success">Написать сообщение</button>
-            <button type="button" class="btn btn-success">Заблокировать</button>
+            <button type="button" th:if="${session.username != user.name}" class="btn btn-success">Добавить в друзья</button>
+            <button type="button" th:if="${session.username != user.name}" class="btn btn-success">Написать сообщение</button>
+            <button type="button" th:if="${session.username != user.name}" class="btn btn-success">Заблокировать</button>
         </div>
         <div id="friendList">
             <p>Ваши друзья(0): </p>
@@ -30,13 +31,22 @@
         </div>
 
     </div>
-    <div id="aboutMe">
+    <div id="aboutMe" th:if="${user.name!='Такого пользователя не найдено'}">
         <h3>Описание</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad architecto consequatur deleniti dolor exercitationem illum impedit iure magnam minima modi natus, nisi officia perferendis possimus quidem quod saepe sed suscipit?</p>
     </div>
-    <div id="newsMe">
+    <div id="newsMe" th:if="${user.name!='Такого пользователя не найдено'}">
 
     </div>
+    <div th:if="${user.name=='Такого пользователя не найдено'}">
+        <p>Такого пользователя не найдено!</p>
+    </div>
+    <div id="registrationButtons" th:if="${session.username == null}">
+        <p>Вы не вошли в аккаунт, для начала войдите в аккаунт или зарегистрируйтесь</p>
+        <button type="button" class="btn btn-success"><a href="/register">Зарегистрироваться</a></button>
+        <button type="button" class="btn btn-success"><a href="/login">Войти</a></button>
+    </div>
+
 </div>
 </body>
 </html>

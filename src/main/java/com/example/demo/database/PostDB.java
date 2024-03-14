@@ -17,7 +17,6 @@ public class PostDB extends Database {
     public ResultSet getPost() {
         try{
             resultSet = statement.executeQuery("SELECT * FROM posts");
-            System.out.println(resultSet);
         } catch (SQLException e) {
             System.out.println(e);
         }
