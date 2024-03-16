@@ -1,5 +1,7 @@
 package com.example.demo.database;
 
+import com.example.demo.Mudak;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
@@ -9,10 +11,19 @@ import java.sql.DriverManager;
 import java.sql.Driver;
 import java.sql.Statement;
 @Component
-public class Database {
+public class Database implements Mudak {
     static Connection con;
     static ResultSet resultSet;
+
     static Statement statement;
+    @Bean()
+    public Statement getStatement() {
+        return statement;
+    }
+    @Bean()
+    public ResultSet getResultSet() {
+        return resultSet;
+    }
     @Bean
     public static void main() {
         try {
@@ -29,14 +40,17 @@ public class Database {
 
         }
     }
+
     public ResultSet GetNameOfCurrentUser(int id){
         try {
             resultSet = statement.executeQuery(String.format("SELECT * FROM user WHERE iduser = %d", id));
+            System.out.println("dsdas");
         } catch(SQLException e) {
             System.out.println(e);
         }
         return resultSet;
     }
+
 
 
     public ResultSet GetNameOfCurrentUser(String name){

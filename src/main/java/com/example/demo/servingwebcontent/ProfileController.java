@@ -15,10 +15,10 @@ import java.util.List;
 
 @Controller
 public class ProfileController {
-    @GetMapping("/profile")
-    public String register(Model model) {
-        model.addAttribute("user", new User());
-        return "profile";
+    @GetMapping("/user/")
+    public String show(Model model) {
+        model.addAttribute("error", "Такого пользователя не существует");
+        return "error";
     }
 
     @GetMapping("/user/{name}")
