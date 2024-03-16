@@ -1,6 +1,7 @@
 package com.example.demo.models;
 
 import com.example.demo.database.PostDB;
+import org.springframework.stereotype.Component;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -1,3 +1,4 @@
 function update() {
-    console.log(sessionStorage.getItem("username"));
+
+    console.log("JS work.");
 }

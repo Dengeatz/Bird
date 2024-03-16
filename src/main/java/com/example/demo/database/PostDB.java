@@ -1,6 +1,8 @@
 package com.example.demo.database;
 
 
+import org.springframework.stereotype.Component;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 

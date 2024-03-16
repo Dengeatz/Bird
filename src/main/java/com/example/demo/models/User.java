@@ -1,30 +1,41 @@
 package com.example.demo.models;
 
+import com.example.demo.Mudak;
 import com.example.demo.database.Database;
 import com.example.demo.database.UserDB;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
+import javax.xml.crypto.Data;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.Objects;
 
-
-public class User extends UserDB {
+@Component
+public class User implements Mudak {
     int id;
     String name;
     String email;
     String password;
-    Database db = new Database();
+
+    @Autowired
+    Database database;
+    @Autowired
+    UserDB userDB;
     public User() {
         System.out.println("Зарегистрируйтесь в системе");
 
     }
+
     public User(int id) {
         try{
 
-            ResultSet user_info = db.GetNameOfCurrentUser(id);
+            ResultSet user_info = database.GetNameOfCurrentUser(id);
             this.id = id;
             while(user_info.next()) {
                 this.name = user_info.getString("name");
@@ -39,7 +50,7 @@ public class User extends UserDB {
 
     public User(String name) throws SQLException {
         try {
-            ResultSet user_info = db.GetNameOfCurrentUser(name);
+            ResultSet user_info = database.GetNameOfCurrentUser(name);
             if(user_info.next()) {
                 System.out.println("Пользователь найден");
                 this.name = user_info.getString("name");
@@ -54,8 +65,9 @@ public class User extends UserDB {
         }
     }
 
+
     public String[] loginToAccount(User user) throws SQLException {
-        ResultSet result = user.getPasswordByLoginDB(user.name);
+        ResultSet result = userDB.getPasswordByLoginDB(user.name);
 
         while(result.next()) {
             if(Objects.equals(user.name, result.getString("name"))) {
@@ -115,7 +127,7 @@ public class User extends UserDB {
         String answer = "";
         String encrypted = "";
         try{
-            ResultSet post_info = getPasswordDB(25);
+            ResultSet post_info = userDB.getPasswordDB(25);
             while(post_info.next()) {
                 answer = post_info.getString("password");
                 int key = 27;

@@ -1,6 +1,8 @@
 package com.example.demo.models;
 
 import com.example.demo.database.PostDB;
+import org.springframework.stereotype.Component;
+
 
 public class Post {
 
@@ -14,7 +16,9 @@ public class Post {
         this.description = description;
         this.datetime = datetime;
         this.author = author;
+
     }
+
 
     public String getTitle() {
         return this.title;
