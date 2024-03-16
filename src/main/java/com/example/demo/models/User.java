@@ -36,6 +36,7 @@ public class User extends UserDB {
         }
     }
 
+
     public User(String name) throws SQLException {
         try {
             ResultSet user_info = db.GetNameOfCurrentUser(name);
