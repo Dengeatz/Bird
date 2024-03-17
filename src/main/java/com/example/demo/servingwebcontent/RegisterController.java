@@ -10,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -23,16 +25,11 @@ public class RegisterController implements Mudak {
     UserDB userDB;
 
     @RequestMapping(value="/register", method = RequestMethod.POST)
-    public String create(@ModelAttribute("user") User user,Model model) {
-        try{
-
-            userDB.addToDatabase(user);
-            return "redirect:/";
-        } catch(SQLException e) {
-            System.out.println(e);
-            model.addAttribute("error", e);
-            return "/error";
-        }
+    public String create(@ModelAttribute("user") @Valid User user, Model model, BindingResult bindingResult) {
+        if(bindingResult.hasErrors())
+            return "redirect:/register";
+        userDB.addToDatabase(user);
+        return "redirect:/";
     }
     @GetMapping("/register")
     public String register(Model model) {
