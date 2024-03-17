@@ -20,7 +20,8 @@ import java.util.Arrays;
 @SpringBootApplication
 public class DemoApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(Config.class);
+		SpringApplication.run(Config.class, args);
 	}
+
 
 }
