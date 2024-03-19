@@ -1,0 +1,61 @@
+
+p {
+    font-size: 15px;
+    margin: 0;
+    color: #dadada;
+}
+
+body{
+    background-color: #363636;
+}
+
+#formDiv {
+    position: absolute;
+    left: 650px;
+    top: 200px;
+    background-color : #282828;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+#error {
+    width: 230px;
+
+}
+input {
+    width: 230px !important;
+    background-color: #212529 !important;
+    color: white !important;
+}
+
+
+#termsOfAgree {
+    transition: top 3s ease;
+    visibility: visible;
+    width:400px;
+    position: absolute;
+    right: 50px;
+    background-color: #282828;
+    padding: 10px;
+    top: -600px;
+}
+
+#registrationBTN {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+}
+
+#termsOfAgree > p{
+    padding: 10px;
+
+}
+
+#termsOfAgree > a {
+    margin-top: 10px !important;
+    margin-left: 130px;
+}

@@ -4,27 +4,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="/css/home.css">
+  <link rel="stylesheet" type="text/css" href="/css/register.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <title>Bird</title>
 </head>
 <body>
-<div id="formDiv">
+
+<div id="formDiv" class="border border-success rounded-3">
   <form action="#" th:action="@{/register}" th:object="${user}" method="post">
     <p>Введите ваше имя: </p>
-    <input type="text" th:field="*{name}"/>
-    <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+    <input type="text" th:field="*{name}" class="form-control border-success"/>
+    <div id="error" style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
     <p>Введите вашу почту: </p>
-    <input type="email" th:field="*{email}"/>
-    <div style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+    <input type="email" th:field="*{email}" class="form-control border-success"/>
+    <div id="error" style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
     <p>Придумайте пароль: </p>
-    <input type="password" th:field="*{password}"/>
-    <div style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+    <input type="password" th:field="*{password}" class="form-control border-success"/>
+    <div id="error" style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
     <p>Повторите пароль: </p>
-    <input type="password" />
+    <input type="password" class="form-control border-success"/>
     <div style="color: red" th:if="${error}">Такой пользователь уже существует</div>
-    <button>Зарегистрироваться</button>
+    <div id="termsOfAgree" class="border border-success rounded-3"><p class="border border-success rounded-3">Lorem ipsum dolor sit
+      amet, consectetur adipisicing elit. Aliquam, animi
+      asperiores cum dicta ducimus facere facilis impedit
+      itaque laborum magni nisi
+      nulla numquam odit perferendis tempore ut
+      voluptas voluptatem voluptatum.</p>
+    <a class="btn btn-outline-success" th:onclick="hideRegister()">Принимаю</a>
+    </div>
+    <div><a href="#" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" id="termsOfAgreeBTN" th:onclick="anim()">Условия использования</a></div>
+    <button id="registrationBTN" class="btn btn-outline-success ">Зарегистрироваться</button>
   </form>
 </div>
+<script src="../js/register.js?2"></script>
 </body>
 </html>
