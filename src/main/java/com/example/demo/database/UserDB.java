@@ -127,12 +127,10 @@ public class UserDB implements Mudak {
         return encrypted; /* Это расшифрованный пароль */
     }
 
-    public void addToDatabase(User user)  {
-        try {
-            statement.execute(String.format("INSERT into user (name, email, password) values(\"%s\", \"%s\", \"%s\")", user.getName(), user.getEmail(), Arrays.toString(decryptPassword(user.getPassword()))));
-        } catch (SQLException e) {
-            System.out.println(e);;
-        }
+    public void addToDatabase(User user) throws SQLException {
+
+        statement.execute(String.format("INSERT into user (name, email, password) values(\"%s\", \"%s\", \"%s\")", user.getName(), user.getEmail(), Arrays.toString(decryptPassword(user.getPassword()))));
+
 
     }
 
