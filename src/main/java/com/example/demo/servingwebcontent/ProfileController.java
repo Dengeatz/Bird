@@ -1,5 +1,6 @@
 package com.example.demo.servingwebcontent;
 
+import com.example.demo.database.UserDB;
 import com.example.demo.models.Post;
 import com.example.demo.models.Posts;
 import com.example.demo.models.User;
@@ -23,7 +24,8 @@ public class ProfileController {
 
     @GetMapping("/user/{name}")
     public String show(@PathVariable("name") String name,Model model) throws SQLException {
-        model.addAttribute("user", new User(name));
+
+        model.addAttribute("user", new UserDB(name).getUser());
         return "profile";
     }
 }

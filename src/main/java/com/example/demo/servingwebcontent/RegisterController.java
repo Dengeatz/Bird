@@ -33,7 +33,7 @@ public class RegisterController implements Mudak {
     }
     @GetMapping("/register")
     public String register(Model model) {
-        model.addAttribute("user", new User());
+        model.addAttribute("user", new UserDB().getUser());
         return "register";
     }
 }
