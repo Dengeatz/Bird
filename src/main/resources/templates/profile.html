@@ -11,7 +11,7 @@
 <body>
 <div th:insert="~{template}"></div>
 
-<div id="profileMain" >
+<div id="profileMain" class="rounded-3">
     <div id="leftSide" th:if="${user.name!='Такого пользователя не найдено'}">
         <div id="nameOfUser">
             <h2 th:text="${user.name}"></h2>
